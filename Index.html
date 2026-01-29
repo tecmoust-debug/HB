@@ -1,188 +1,234 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Documento Digital (Mockup)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documento Digital (Mockup)</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+}
 
-    body {
-      margin: 0;
-      background: #dcdcdc;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-    }
+body {
+  margin: 0;
+  background: #ccc;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
 
-    /* 📱 Container estilo celular */
-    .phone {
-      width: 390px;
-      min-height: 844px;
-      background: #f2f2f2;
-      border-radius: 28px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,.3);
-    }
+/* 📱 Container celular */
+.phone {
+  width: 390px;
+  height: 844px;
+  background: #f2f2f2;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+}
 
-    /* 🔵 Header */
-    .header {
-      background: #0a2a5e;
-      color: white;
-      padding: 20px 16px 24px;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-    }
+/* 🔵 Header */
+.header {
+  background: #0a2a5e;
+  color: white;
+  padding: 20px 16px 24px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 
-    .header-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .menu {
-      font-size: 22px;
-    }
+.menu-btn {
+  font-size: 22px;
+  cursor: pointer;
+}
 
-    .user {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+.user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 
-    .avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
 
-    .name {
-      margin-top: 12px;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
+.name {
+  margin-top: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
 
-    /* 🧱 Cards */
-    .content {
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+/* 🧱 Conteúdo */
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-    .card {
-      height: 110px;
-      border-radius: 16px;
-      padding: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 6px 20px rgba(0,0,0,.15);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
+.card {
+  height: 110px;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+  color: white;
+}
 
-    .card h3 {
-      margin: 0;
-      font-size: 16px;
-      letter-spacing: .5px;
-    }
+.green { background:#0fa958; }
+.yellow { background:#ffd23f; color:#222; }
+.blue { background:#1e3a8a; }
+.lightblue { background:#6ec1f3; color:#222; }
 
-    .card p {
-      margin: 6px 0 0;
-      font-size: 13px;
-      opacity: .9;
-    }
+/* 🌫️ Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: .3s;
+}
 
-    .icon {
-      font-size: 40px;
-      opacity: .9;
-    }
+/* 📋 Menu lateral */
+.drawer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  background: #f9f9f9;
+  transform: translateX(-100%);
+  transition: .3s;
+  padding: 20px;
+  overflow-y: auto;
+}
 
-    /* 🎨 Cores dos cards */
-    .green { background: #0fa958; }
-    .yellow { background: #ffd23f; color: #1a1a1a; }
-    .blue { background: #1e3a8a; }
-    .lightblue { background: #6ec1f3; color: #1a1a1a; }
+/* Estados ativos */
+.drawer.open { transform: translateX(0); }
+.overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
 
-    /* 🧾 Rodapé */
-    .footer {
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 11px;
-      text-align: center;
-      color: #666;
-    }
-  </style>
+/* Cabeçalho menu */
+.drawer-header {
+  margin-bottom: 20px;
+}
+
+.drawer-header h3 {
+  margin: 12px 0 4px;
+  font-size: 16px;
+}
+
+.drawer-header p {
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Itens */
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  cursor: pointer;
+}
+.menu-item:last-child {
+  border-bottom: none;
+}
+</style>
 </head>
 
 <body>
-  <div class="phone">
 
-    <!-- Header -->
-    <div class="header">
-      <div class="header-top">
-        <div class="menu">☰</div>
-        <div class="user">
-          🔔
-          <div class="avatar">J</div>
-        </div>
-      </div>
-      <div class="name">JEAN</div>
+<div class="phone">
+
+  <!-- Overlay -->
+  <div class="overlay" onclick="toggleMenu()"></div>
+
+  <!-- Drawer -->
+  <div class="drawer" id="drawer">
+    <div class="drawer-header">
+      <strong>Documento Digital</strong>
+      <h3>JEAN VITOR DE SOUSA</h3>
+      <p>034.469.652-97</p>
     </div>
 
-    <!-- Conteúdo -->
-    <div class="content">
-
-      <div class="card green">
-        <div>
-          <h3>CONDUTOR</h3>
-          <p>Gerencie sua <b>habilitação</b></p>
-        </div>
-        <div class="icon">🚗</div>
-      </div>
-
-      <div class="card yellow">
-        <div>
-          <h3>VEÍCULOS</h3>
-          <p>Acesso ao <b>CRLV-e</b>, venda digital</p>
-        </div>
-        <div class="icon">🚙</div>
-      </div>
-
-      <div class="card blue">
-        <div>
-          <h3>INFRAÇÕES</h3>
-          <p>Visualize e pague com até <b>40% de desconto</b></p>
-        </div>
-        <div class="icon">🚓</div>
-      </div>
-
-      <div class="card lightblue">
-        <div>
-          <h3>EDUCAÇÃO</h3>
-          <p>Conheça nossa <b>plataforma de cursos</b></p>
-        </div>
-        <div class="icon">🎓</div>
-      </div>
-
-    </div>
-
-    <!-- Rodapé -->
-    <div class="footer">
-      Documento Digital • Mockup de Interface
-    </div>
-
+    <div class="menu-item">📨 Central de Mensagens</div>
+    <div class="menu-item">🔐 Política de Privacidade</div>
+    <div class="menu-item">📄 Termo de Responsabilidade</div>
+    <div class="menu-item">⭐ Avaliar</div>
+    <div class="menu-item">⚙️ Preferências</div>
+    <div class="menu-item">📘 Tutorial</div>
+    <div class="menu-item">❓ Assistente Virtual</div>
+    <div class="menu-item">ℹ️ Sobre</div>
+    <div class="menu-item">🚪 Sair da Conta</div>
   </div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+      <div class="user">
+        🔔
+        <div class="avatar">J</div>
+      </div>
+    </div>
+    <div class="name">JEAN</div>
+  </div>
+
+  <!-- Cards -->
+  <div class="content">
+    <div class="card green">
+      <div><strong>CONDUTOR</strong><br>Gerencie sua habilitação</div>
+      🚗
+    </div>
+
+    <div class="card yellow">
+      <div><strong>VEÍCULOS</strong><br>Acesso ao CRLV-e</div>
+      🚙
+    </div>
+
+    <div class="card blue">
+      <div><strong>INFRAÇÕES</strong><br>Até 40% de desconto</div>
+      🚓
+    </div>
+
+    <div class="card lightblue">
+      <div><strong>EDUCAÇÃO</strong><br>Plataforma de cursos</div>
+      🎓
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleMenu() {
+  document.getElementById('drawer').classList.toggle('open');
+  document.querySelector('.overlay').classList.toggle('open');
+}
+</script>
+
 </body>
 </html>
