@@ -3,23 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Documento Digital (Mockup)</title>
+<title>CNH Brasil - Protótipo</title>
 
 <style>
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  margin: 0;
-  background: #ccc;
+  background: #1a1a1a;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
+  height: 100vh;
 }
 
-/* 📱 Container celular */
+/* ===== CELULAR ===== */
 .phone {
   width: 390px;
   height: 844px;
@@ -27,87 +29,106 @@ body {
   border-radius: 28px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
 }
 
-/* 🔵 Header */
+/* ===== HEADER ===== */
 .header {
+  height: 80px;
   background: #0a2a5e;
   color: white;
-  padding: 20px 16px 24px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-.header-top {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  padding: 0 16px;
+  justify-content: space-between;
+  z-index: 1;
 }
 
 .menu-btn {
-  font-size: 22px;
+  font-size: 26px;
   cursor: pointer;
 }
 
-.user {
+.header .right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 .avatar {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 2px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
 }
 
-.name {
-  margin-top: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-/* 🧱 Conteúdo */
+/* ===== CONTENT ===== */
 .content {
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  z-index: 1;
 }
 
 .card {
-  height: 110px;
-  border-radius: 16px;
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+  height: 120px;
+  border-radius: 14px;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,.2);
+  background-color: #0fa25a;
 }
 
-.green { background:#0fa958; }
-.yellow { background:#ffd23f; color:#222; }
-.blue { background:#1e3a8a; }
-.lightblue { background:#6ec1f3; color:#222; }
+.card h2 {
+  font-size: 20px;
+}
 
-/* 🌫️ Overlay */
+.card p {
+  font-size: 14px;
+  opacity: .9;
+}
+
+/* ===== IMAGENS DOS CARDS ===== */
+.condutor {
+  background-image: url("C:/Users/Jean/Documents/GitHub/HB/1.png");
+}
+
+.veiculos {
+  background-image: url("https://i.imgur.com/Mc9w1Sg.png");
+}
+
+.infracoes {
+  background-image: url("https://i.imgur.com/W7qgXzF.png");
+}
+
+.educacao {
+  background-image: url("https://i.imgur.com/4F9b0tM.png");
+}
+
+/* ===== OVERLAY ===== */
 .overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,.4);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.45);
   opacity: 0;
   pointer-events: none;
   transition: .3s;
+  z-index: 5;
 }
 
-/* 📋 Menu lateral */
+/* ===== MENU LATERAL ===== */
 .drawer {
   position: absolute;
   top: 0;
@@ -117,45 +138,40 @@ body {
   background: #f9f9f9;
   transform: translateX(-100%);
   transition: .3s;
+  z-index: 6;
   padding: 20px;
   overflow-y: auto;
 }
 
-/* Estados ativos */
-.drawer.open { transform: translateX(0); }
-.overlay.open {
+.drawer.active {
+  transform: translateX(0);
+}
+
+.overlay.active {
   opacity: 1;
-  pointer-events: all;
+  pointer-events: auto;
 }
 
-/* Cabeçalho menu */
-.drawer-header {
-  margin-bottom: 20px;
+.drawer h3 {
+  margin-bottom: 6px;
+  color: #0a2a5e;
 }
 
-.drawer-header h3 {
-  margin: 12px 0 4px;
-  font-size: 16px;
+.drawer span {
+  color: #666;
+  font-size: 14px;
 }
 
-.drawer-header p {
-  margin: 0;
-  font-size: 13px;
-  color: #555;
+.drawer ul {
+  margin-top: 20px;
+  list-style: none;
 }
 
-/* Itens */
-.menu-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.drawer li {
   padding: 14px 0;
   border-bottom: 1px solid #ddd;
-  font-size: 14px;
   cursor: pointer;
-}
-.menu-item:last-child {
-  border-bottom: none;
+  font-size: 16px;
 }
 </style>
 </head>
@@ -164,60 +180,63 @@ body {
 
 <div class="phone">
 
-  <!-- Overlay -->
-  <div class="overlay" onclick="toggleMenu()"></div>
-
-  <!-- Drawer -->
+  <!-- MENU -->
   <div class="drawer" id="drawer">
-    <div class="drawer-header">
-      <strong>Documento Digital</strong>
-      <h3>JEAN VITOR DE SOUSA</h3>
-      <p>034.469.652-97</p>
-    </div>
+    <h3>JEAN VITOR DE SOUSA</h3>
+    <span>034.469.652-97</span>
 
-    <div class="menu-item">📨 Central de Mensagens</div>
-    <div class="menu-item">🔐 Política de Privacidade</div>
-    <div class="menu-item">📄 Termo de Responsabilidade</div>
-    <div class="menu-item">⭐ Avaliar</div>
-    <div class="menu-item">⚙️ Preferências</div>
-    <div class="menu-item">📘 Tutorial</div>
-    <div class="menu-item">❓ Assistente Virtual</div>
-    <div class="menu-item">ℹ️ Sobre</div>
-    <div class="menu-item">🚪 Sair da Conta</div>
+    <ul>
+      <li>Central de Mensagens</li>
+      <li>Política de Privacidade</li>
+      <li>Termo de Responsabilidade</li>
+      <li>Avaliar</li>
+      <li>Preferências</li>
+      <li>Tutorial</li>
+      <li>Assistente Virtual</li>
+      <li>Sobre a CNH</li>
+      <li>Sair da Conta</li>
+    </ul>
   </div>
 
-  <!-- Header -->
+  <!-- OVERLAY -->
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+  <!-- HEADER -->
   <div class="header">
-    <div class="header-top">
-      <div class="menu-btn" onclick="toggleMenu()">☰</div>
-      <div class="user">
-        🔔
-        <div class="avatar">J</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div class="right">
+      🔔
+      <div class="avatar">J</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="card condutor">
+      <div>
+
       </div>
     </div>
-    <div class="name">JEAN</div>
-  </div>
 
-  <!-- Cards -->
-  <div class="content">
-    <div class="card green">
-      <div><strong>CONDUTOR</strong><br>Gerencie sua habilitação</div>
-      🚗
+    <div class="card veiculos">
+      <div>
+        <h2>Veículos</h2>
+        <p>CRLV-e e venda digital</p>
+      </div>
     </div>
 
-    <div class="card yellow">
-      <div><strong>VEÍCULOSs</strong><br>Acesso ao CRLV-e</div>
-      🚙
+    <div class="card infracoes">
+      <div>
+        <h2>Infrações</h2>
+        <p>Até 40% de desconto</p>
+      </div>
     </div>
 
-    <div class="card blue">
-      <div><strong>INFRAÇÕES</strong><br>Até 40% de desconto</div>
-      🚓
-    </div>
-
-    <div class="card lightblue">
-      <div><strong>EDUCAÇÃO</strong><br>Plataforma de cursos</div>
-      🎓
+    <div class="card educacao">
+      <div>
+        <h2>Educação</h2>
+        <p>Plataforma de cursos</p>
+      </div>
     </div>
   </div>
 
@@ -225,8 +244,8 @@ body {
 
 <script>
 function toggleMenu() {
-  document.getElementById('drawer').classList.toggle('open');
-  document.querySelector('.overlay').classList.toggle('open');
+  document.getElementById("drawer").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
 }
 </script>
 
