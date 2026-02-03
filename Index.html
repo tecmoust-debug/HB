@@ -172,6 +172,12 @@ body {
 
 .drawer li {
   padding: 14px 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.linha {
+  padding: 14px 0;
   border-bottom: 1px solid #ddd;
   cursor: pointer;
   font-size: 16px;
@@ -196,6 +202,28 @@ body {
   position: relative;
 }
 
+.icon1 {
+  width: 120px;
+  height: 120px;
+  background-image: url("cnhl.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;              /* espaço entre ícone e texto */
+  padding: 16px 20px;
+  font-size: 19px;
+  color: #333;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
 
 </style>
 <link rel="stylesheet"
@@ -209,19 +237,51 @@ body {
 
   <!-- MENU -->
   <div class="drawer" id="drawer">
+    <div class="icon1"></div>
     <h3>MARIA FERNANDA MARTIS NUNES</h3>
     <span>100.565.882.08</span>
-
     <ul>
-      <li>Central de Mensagens</li>
-      <li>Política de Privacidade</li>
-      <li>Termo de Responsabilidade</li>
-      <li>Avaliar</li>
-      <li>Preferências</li>
-      <li>Tutorial</li>
-      <li>Assistente Virtual</li>
-      <li>Sobre a CNH</li>
-      <li>Sair da Conta</li>
+      <li class="linha"></li>
+<li class="item">
+    <img src="12.png" class="icon" alt="">
+    <span>Central de Mensagens</span>
+  </li>
+  <li class="item">
+    <img src="13.png" class="icon" alt="">
+    <span>Política de Privacidade</span>
+  </li>
+  <li class="item">
+    <img src="14.png" class="icon" alt="">
+    <span>Termo de Responsabilidade</span>
+  </li>
+  <li class="item">
+    <img src="15.png" class="icon" alt="">
+    <span>Avaliar</span>
+  </li>
+
+      <li class="linha"></li>
+      <li class="item">
+    <img src="16.png" class="icon" alt="">
+    <span>Preferências</span>
+  </li>
+  <li class="item">
+    <img src="17.png" class="icon" alt="">
+    <span>Tutorial</span>
+  </li>
+  <li class="item">
+    <img src="18.png" class="icon" alt="">
+    <span>Assistente Virtual</span>
+  </li>
+  <li class="item">
+    <img src="19.png" class="icon" alt="">
+    <span>Sobre a CNH</span>
+  </li>
+
+         <li class="linha"></li>
+           <li class="item">
+    <img src="20.png" class="icon" alt="">
+    <span>Sair da Conta</span>
+  </li>
     </ul>
   </div>
 
