@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Condutor</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ===== CELULAR ===== */
+.phone {
+  width: 390px;
+  height: 844px;
+  background: #f2f2f2;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,.4);
+  position: relative;
+}
+
+/* ===== HEADER ===== */
+.header {
+  height: 110px;
+  background: #0a2a5e;
+  color: white;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 16px;
+}
+
+.back {
+  font-size: 26px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ===== CONTENT ===== */
+.content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== CARD INFORMAÇÕES ===== */
+.info-card {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+}
+
+.info-card h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+}
+
+.info-item label {
+  font-size: 12px;
+  color: #777;
+}
+
+.info-item p {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ===== GRID DE BOTÕES ===== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.menu-card {
+  background: white;
+  border-radius: 16px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: .2s;
+}
+
+.menu-card:hover {
+  transform: scale(1.03);
+}
+
+.menu-card span {
+  font-size: 13px;
+  text-align: center;
+  color: #0a2a5e;
+  font-weight: bold;
+}
+
+/* Ícone fake (substitua por SVG ou imagem se quiser) */
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+.icon1 {
+  width: 60px;
+  height: 60px;
+  background-image: url("6.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon2 {
+  width: 60px;
+  height: 60px;
+  background-image: url("7.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon3 {
+  width: 60px;
+  height: 60px;
+  background-image: url("8.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon4 {
+  width: 60px;
+  height: 60px;
+  background-image: url("9.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="phone">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="back">‹</div>
+    <h1>CONDUTOR</h1>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- INFORMAÇÕES DO CONDUTOR -->
+    <div class="info-card">
+      <h2>Informações do Condutor</h2>
+
+      <div class="info-grid">
+        <div class="info-item">
+          <label>Nome</label>
+          <p>M****** F*** M**** N****</p>
+        </div>
+
+        <div class="info-item">
+          <label>Sexo</label>
+          <p>MASCULINO</p>
+        </div>
+
+        <div class="info-item">
+          <label>CPF</label>
+          <p>***.565.882-**</p>
+        </div>
+
+        <div class="info-item">
+          <label>UF de Emissão</label>
+          <p>PA</p>
+        </div>
+
+        <div class="info-item">
+          <label>Categoria</label>
+          <p>AB</p>
+        </div>
+
+        <div class="info-item">
+          <label>Data de Emissão</label>
+          <p>21/10/2025</p>
+        </div>
+
+        <div class="info-item">
+          <label>Data de Validade</label>
+          <p>17/10/2035</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU -->
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="icon" style="color:#0a2a5e; font-size: 35px;"><i class="fa-solid fa-address-card"></i>
+</div>
+        <span>HABILITAÇÃO</span>
+      </div>
+
+      <div class="menu-card">
+        <div class="icon1"></div>
+        <span>CADASTRO POSITIVO</span>
+      </div>
+
+      <div class="menu-card">
+        <div class="icon2"></div>
+        <span>EXAMES TOXICOLÓGICOS</span>
+      </div>
+
+      <div class="menu-card">
+        <div class="icon3"></div>
+        <span>CURSOS ESPECIALIZADOS</span>
+      </div>
+
+      <div class="menu-card" style="grid-column: span 2;">
+
+        <div class="icon4"></div>
+        <span>CREDENCIAL DE ESTACIONAMENTO</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
