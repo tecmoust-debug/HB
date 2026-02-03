@@ -235,7 +235,7 @@ body {
 
   <!-- CONTENT -->
   <div class="content">
-    <div class="card condutor" data-url="https://www.google.com.br">
+    <div class="card condutor" data-url="condutor.html">
       <div>
          <h2 style="font-family:Cerebri Sans SemiBold" >CONDUTOR</h2>
         <p style="font-size: 10px; padding-top: 2%;">Gerencie sua <br> <b>habilitação</b></p>
@@ -278,8 +278,8 @@ function toggleMenu() {
 }
 </script>
 <script>
-  document.querySelector('.card').addEventListener('click', function () {
-    window.open(this.dataset.url, '_blank');
+  document.querySelector('.card.condutor').addEventListener('click', function () {
+    window.location.href = this.dataset.url;
   });
 </script>
 
